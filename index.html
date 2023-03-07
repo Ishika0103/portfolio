@@ -475,32 +475,33 @@
                                     <div class="row">
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Name">
+                                                <input type="text" class="form-control" placeholder="Name" id="name">
                                             </div>
                                         </div>
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Email">
+                                                <input type="text" class="form-control" placeholder="Email" id="email">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-item col-12 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Subject">
+                                                <input type="text" class="form-control" placeholder="Subject"
+                                                    id="subject">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-item col-12 padd-15">
                                             <div class="form-group">
-                                                <textarea name="" class="form-control" id=""
+                                                <textarea name="" class="form-control" id="message"
                                                     placeholder="Message"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-item col-12 padd-15">
-                                        <button type="submit" class="btn">Send Message</button>
+                                        <button type="submit" id="btn">Send Message</button>
 
                                     </div>
                                 </div>
@@ -551,9 +552,24 @@
         var btn = document.getElementById("btn");
         btn.addEventListener('click', function (e) {
             e.preventDefault()
-            console.log('hi');
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var subject = document.getElementById("subject").value;
+            var message = document.getElementById("message").value;
+            var body = 'name:' + name + '<br/> email:' + email + '<br/> subject:' + subject + '<br/> message:' + message;
+
+            Email.send({
+                SecureToken: "78f125ef-a1d1-477f-bb46-bdc971907243",
+                To: 'ishikamriad03@gmail.com',
+                From: "anishabhandari1403@gmail.com",
+                Subject: "Contact Message",
+                Body: body
+            }).then(
+                message => alert(message)
+            );
         })
     </script>
+
 
 
 
