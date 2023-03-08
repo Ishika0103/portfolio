@@ -469,7 +469,7 @@
                         <h4 class="contact-sub-title padd-15">I'M VERY RESPONIVE TO MESSAGES</h4>
                         <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
                         <!-- contact form  -->
-                        <form onsubmit="sendEmail();reset();return false;">
+                        <form onsubmit="Mail();reset();return false;">
                             <div class="row">
                                 <div class="contact-form padd-15">
                                     <div class="row">
@@ -549,32 +549,26 @@
     <script src="js/style-switcher.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
-        var btn = document.getElementById("btn");
-        btn.addEventListener('click', function (e) {
-            e.preventDefault()
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var subject = document.getElementById("subject").value;
-            var message = document.getElementById("message").value;
-            var body = 'name:' + name + '<br/> email:' + email + '<br/> subject:' + subject + '<br/> message:' + message;
-
+        function Mail() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let subject = document.getElementById("subject").value;
+            let message = document.getElementById("message").value;
             Email.send({
-                SecureToken: "78f125ef-a1d1-477f-bb46-bdc971907243",
+                // Host: "smtp.elasticemail.com",
+                // Username: "ishikamriad03@gmail.com",
+                // Password: "92ACD5C2B4211BDB7BE627FDFE9D36369C08",
+                SecureToken: "556d9891-3327-4354-a5a5-e1e3ef530eeb",
                 To: 'ishikamriad03@gmail.com',
-                From: 'ishikamriad03@gmail.com',
-                Subject: "Contact Message",
-                Body: body
+                From: "ishikamriad03@gmail.com",
+                Subject: "Mail from Contact form",
+                Body: "Name:" + name + "<br/> User Email:" + email + "<br/> Subject:" + subject + "<br/>User Message :" + message
             }).then(
                 message => alert(message)
             );
-        })
+        }
+
     </script>
-
-
-
-
-
-
     </div>
 </body>
 
