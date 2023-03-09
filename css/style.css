@@ -1130,23 +1130,6 @@ a {
 }
 
 
-.text{
-    animation-timing-function: ease;
-    animation-name: text;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    
-}
-
-  
-@keyframes text {
-    from {
-        margin-top: 50%;
-    }
-    to {
-        margin-top: 100%;
-    }
-}
 
 
 
